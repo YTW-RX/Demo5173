@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.model.User">
+        <constructor>
+            <idArg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="user_pwd" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="user_realName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="user_card" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="user_phone" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="user_createTime" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="user_state" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    user_id, user_name, user_pwd, user_realName, user_card, user_phone, user_createTime, user_state
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+    <select id="getList" resultType="com.example.demo.model.User" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_user
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.example.demo.model.User">
+    insert into tb_user (user_name, user_pwd,
+      user_card, user_phone, user_createTime, 
+      user_state)
+    values (#{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR},
+      #{userCard,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{userCreatetime,jdbcType=TIMESTAMP},
+      #{userState,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.example.demo.model.User">
+        insert into tb_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="userPwd != null">
+                user_pwd,
+            </if>
+            <if test="userCard != null">
+                user_card,
+            </if>
+            <if test="userPhone != null">
+                user_phone,
+            </if>
+            <if test="userCreatetime != null">
+                user_createTime,
+            </if>
+            <if test="userState != null">
+                user_state,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userPwd != null">
+                #{userPwd,jdbcType=VARCHAR},
+            </if>
+            <if test="userCard != null">
+                #{userCard,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null">
+                #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="userCreatetime != null">
+                #{userCreatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userState != null">
+                #{userState,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.User">
+        update tb_user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userPwd != null">
+                user_pwd = #{userPwd,jdbcType=VARCHAR},
+            </if>
+            <if test="userCard != null">
+                user_card = #{userCard,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null">
+                user_phone = #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="userCreatetime != null">
+                user_createTime = #{userCreatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userState != null">
+                user_state = #{userState,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.demo.model.User">
+    update tb_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_pwd = #{userPwd,jdbcType=VARCHAR},
+      user_card = #{userCard,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_createTime = #{userCreatetime,jdbcType=TIMESTAMP},
+      user_state = #{userState,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
