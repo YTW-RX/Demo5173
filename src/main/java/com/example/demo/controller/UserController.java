@@ -30,6 +30,7 @@ public class UserController {
         List<User> list = iUserService.getList();
         map.put("success", true);
         map.put("msg", "OK");
+        map.put("ab", "ab");
         map.put("map", list);
         return map;
     }
