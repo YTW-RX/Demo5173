@@ -9,7 +9,7 @@
 	<id>SpringBoot</id>
 
 	<classpath>
-		<dir name="E:/Demo/SpringBoot/target/classes">
+		<dir name="E:/GitDemo/target/classes">
 		</dir>
 	</classpath>
 
