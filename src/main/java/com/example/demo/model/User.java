@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
+/**
+ * @author 殷涛文
+ */
 public class User {
     private Integer userId;
 

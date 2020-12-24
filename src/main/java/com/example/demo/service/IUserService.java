@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * IUserService接口类
+ * @author 殷涛文
  */
 @Transactional
 public interface IUserService {

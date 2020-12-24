@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author 殷涛文
+ */
 @Repository
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
