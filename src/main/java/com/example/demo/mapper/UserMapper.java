@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.model.User;
+import com.example.demo.dao.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

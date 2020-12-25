@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.mapper.UserMapper">
-    <resultMap id="BaseResultMap" type="com.example.demo.model.User">
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.User">
         <constructor>
             <idArg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
             <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String"/>
@@ -22,7 +22,7 @@
         from tb_user
         where user_id = #{userId,jdbcType=INTEGER}
     </select>
-    <select id="getList" resultType="com.example.demo.model.User" resultMap="BaseResultMap">
+    <select id="getList" resultType="com.example.demo.dao.User" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from tb_user
@@ -31,7 +31,7 @@
     delete from tb_user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.example.demo.model.User">
+    <insert id="insert" parameterType="com.example.demo.dao.User">
     insert into tb_user (user_name, user_pwd,
       user_card, user_phone, user_createTime, 
       user_state)
@@ -39,7 +39,7 @@
       #{userCard,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{userCreatetime,jdbcType=TIMESTAMP},
       #{userState,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.example.demo.model.User">
+    <insert id="insertSelective" parameterType="com.example.demo.dao.User">
         insert into tb_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userId != null">
@@ -88,7 +88,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.dao.User">
         update tb_user
         <set>
             <if test="userName != null">
@@ -112,7 +112,7 @@
         </set>
         where user_id = #{userId,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.example.demo.model.User">
+    <update id="updateByPrimaryKey" parameterType="com.example.demo.dao.User">
     update tb_user
     set user_name = #{userName,jdbcType=VARCHAR},
       user_pwd = #{userPwd,jdbcType=VARCHAR},

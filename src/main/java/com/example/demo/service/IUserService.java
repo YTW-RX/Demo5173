@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.User;
+import com.example.demo.dao.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
