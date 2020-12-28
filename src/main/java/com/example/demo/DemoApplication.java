@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @author 殷涛文
  */
 @MapperScan("com.example.demo.mapper")
-@EnableTransactionManagement
-@EnableAspectJAutoProxy
+//@EnableTransactionManagement
+//@EnableAspectJAutoProxy
 @SpringBootApplication
 public class DemoApplication {
 
