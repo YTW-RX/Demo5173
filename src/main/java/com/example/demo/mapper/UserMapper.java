@@ -1,14 +1,14 @@
 package com.example.demo.mapper;
 
-import com.example.demo.dao.User;
-import org.springframework.stereotype.Repository;
+import com.example.demo.model.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 /**
  * @author 殷涛文
  */
-@Repository
+@Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
 
