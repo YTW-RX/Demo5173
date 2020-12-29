@@ -3,9 +3,9 @@ package com.example.demo.service.impl;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.entity.User;
 import com.example.demo.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements IUserService {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     @Override
